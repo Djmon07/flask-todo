@@ -3,6 +3,18 @@
 {% block content %}
   <h1>A simple to-do application</h1>
 
+  <form class="filter" action="/" method="post">
+    <label>Filter:
+      <select class="filter" name="filter">
+        <option value="all">All</option>
+        <option value="completed">Completed</option>
+        <option value="uncompleted">Uncompleted</option>
+      </select>
+    </label>
+
+    <button type="submit">Apply</button>
+  </form>
+
   <ul>
     {% for todo in todos %}
       <li class="{{ "completed" if todo['completed'] }}">
