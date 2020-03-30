@@ -10,3 +10,14 @@ def test_todo_list(client):
     # Mock data should show three to-do items, one of which is complete
     assert response.data.count(b'<li class="">') == 2
     assert response.data.count(b'<li class="completed">') == 1
+
+
+def test_filter(client):
+
+    response = client.post('/', data={'filter': 'completed'})
+    assert b'do homework' in response.data
+    assert b'clean room' not in response.data
+
+    response = client.post('/', data={'filter': 'uncompleted'})
+    assert b'do homework' not in response.data
+    assert b'clean room' in response.data
