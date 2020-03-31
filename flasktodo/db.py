@@ -13,10 +13,10 @@ def get_db():
     # This function returns a connection, but you will also need to open a
     # cursor for the given transaction. For SELECT queries, it would look like:
     #
-    # cur = get_db().cursor()
-    # cur.execute("SELECT ...")
-    # result = cur.fetchone()
-    # cur.close()
+    #cur = get_db().cursor()
+    #cur.execute("SELECT * FROM todos")
+    #result = cur.fetchone()
+    #cur.close()
 
     if "db" not in g:
         # if there is not already a connection, open one using app
@@ -86,4 +86,3 @@ def init_app(app):
     app.teardown_appcontext(close_db)
     app.cli.add_command(init_db_command)
     app.cli.add_command(mock_db_command)
-

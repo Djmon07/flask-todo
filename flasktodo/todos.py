@@ -9,6 +9,15 @@ bp = Blueprint("todos", __name__)
 def index():
     """View for home page which shows list of to-do items."""
 
+    if request.method == 'POST':
+        task = request.form['task']
+        with db.get_db() as con:
+            with con.cursor() as cur:
+                cur.execute("""INSERT INTO todos (description, completed, created_at)
+                VALUES (%s, %s, NOW())""",
+                        (task, False))
+
+
     cur = db.get_db().cursor()
 
     if request.method == 'POST':
