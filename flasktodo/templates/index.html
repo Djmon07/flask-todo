@@ -18,7 +18,7 @@
   <ul>
     {% for todo in todos %}
       <li class="{{ "completed" if todo['completed'] }}">
-        {{ todo['description'] }}
+        {{ todo['description'] }} <a href="{{ url_for('todos.complete', id=todo['id']) }}">Complete</a>
       </li>
     {% endfor %}
   </ul>

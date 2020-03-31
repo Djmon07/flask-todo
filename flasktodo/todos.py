@@ -52,3 +52,9 @@ def new_task():
                 (task, False))
 
     return redirect("/")
+
+
+@bp.route("/complete/<int:id>")
+def complete(id):
+
+    return redirect("/")
