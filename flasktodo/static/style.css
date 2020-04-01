@@ -25,3 +25,20 @@ li.completed {
   text-decoration: line-through;
 }
 
+li a {
+  border: 1px solid black;
+  border-radius: 4px;
+  box-shadow: 1px 1px black;
+  color: black;
+  font-size: 16px;
+  padding: 1px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: lightgreen;
+}
+
+li a:active {
+  box-shadow: inset 1px 1px grey;
+}
