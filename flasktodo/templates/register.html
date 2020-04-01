@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<form class="register" action="/register" method="post">
+
+  <label>Username:
+    <input type="text" name="username">
+  </label>
+  <label>Password:
+    <input type="text" name="password">
+  </label>
+
+  <button type="submit">Sign Up</button>
+</form>
+{% endblock %}

@@ -20,3 +20,7 @@ def register():
 
                 cur.execute("""INSERT INTO users (username, password)
                     VALUES (%s, %s)""", (username, password))
+
+        return redirect('/')
+
+    return render_template('register.html')
