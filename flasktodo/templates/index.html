@@ -19,6 +19,9 @@
     {% for todo in todos %}
       <li class="{{ "completed" if todo['completed'] }}">
         {{ todo['description'] }}
+        <form action="/remove" class="remove" method=post>
+        <button class= "remove" type="submit" name="remove" value="{{ todo['id'] }}">Delete</button>
+        </form>
       </li>
     {% endfor %}
   </ul>

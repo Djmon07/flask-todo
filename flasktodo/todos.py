@@ -52,3 +52,15 @@ def new_task():
                 (task, False))
 
     return redirect("/")
+@bp.route("/remove", methods=["POST"])
+def remove():
+     with db.get_db() as con:
+        with con.cursor() as cur:
+            if request.method == 'POST':
+                remove = request.form.get("remove")
+                for task in request.form:
+                    cur.execute("DELETE FROM todos WHERE id = %s",
+                    (remove,))
+                con.commit()
+
+            return redirect("/")
