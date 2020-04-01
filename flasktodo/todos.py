@@ -64,3 +64,13 @@ def remove():
                 con.commit()
 
             return redirect("/")
+
+@bp.route("/complete/<int:id>")
+def complete(id):
+
+    with db.get_db() as con:
+        with con.cursor() as cur:
+            cur.execute("UPDATE todos SET completed = True WHERE id = %s", (id,))
+            con.commit()
+
+    return redirect("/")

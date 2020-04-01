@@ -20,8 +20,11 @@
       <li class="{{ "completed" if todo['completed'] }}">
         {{ todo['description'] }}
         <form action="/remove" class="remove" method=post>
-        <button class= "remove" type="submit" name="remove" value="{{ todo['id'] }}">Delete</button>
+          <button class= "remove" type="submit" name="remove" value="{{ todo['id'] }}">Delete</button>
         </form>
+        {% if not todo['completed'] %}
+          <a href="{{ url_for('todos.complete', id=todo['id']) }}">Complete</a>
+        {% endif %}
       </li>
     {% endfor %}
   </ul>
