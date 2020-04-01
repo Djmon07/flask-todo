@@ -23,11 +23,11 @@ def test_filter(client):
     assert b'do homework' not in response.data
     assert b'clean room' in response.data
 
-<<<<<<< HEAD
+
 def test_remove(client):
     response = client.post('/remove', data={'remove': 'do homework'})
     assert response.data.count(b'<li class="completed">') == 0
-=======
+
 def test_completion(client):
 
     response = client.post('/', data={'filter': 'uncompleted'})
@@ -35,4 +35,3 @@ def test_completion(client):
     response = client.get('/complete/1')
     response = client.post('/', data={'filter': 'uncompleted'})
     assert b'clean room' not in response.data
->>>>>>> ede6ebf0a4d01762a0c1597b65f30059b01ec3e7
