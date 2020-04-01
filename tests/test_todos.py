@@ -21,3 +21,7 @@ def test_filter(client):
     response = client.post('/', data={'filter': 'uncompleted'})
     assert b'do homework' not in response.data
     assert b'clean room' in response.data
+
+def test_remove(client):
+    response = client.post('/remove', data={'remove': 'do homework'})
+    assert response.data.count(b'<li class="completed">') == 0
