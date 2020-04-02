@@ -3,6 +3,8 @@
 {% block content %}
   <h1>A simple to-do application</h1>
 
+  <p>Don't have an account? <a href="{{ url_for('auth.register') }}">Sign up</a>
+
   <form class="filter" action="/" method="post">
     <label>Filter:
       <select class="filter" name="filter">

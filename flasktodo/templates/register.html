@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Register for a simple to-do application</h1>
+
+{% for message in get_flashed_messages() %}
+  <p class="flash">{{ message}}</p>
+{% endfor %}
+
+<form class="register" action="/register" method="post">
+
+  <label>Username:
+    <input type="text" name="username">
+  </label>
+  <label>Password:
+    <input type="text" name="password">
+  </label>
+
+  <button type="submit">Sign Up</button>
+</form>
+{% endblock %}
