@@ -2,14 +2,15 @@ const listItems = document.querySelectorAll("li")
 
 for (let listItem of listItems) {
   listItem.addEventListener("mouseover", () => {
-    const button = event.target.lastElementChild
-    if (button) {
+
+    for (let x = 0; x < event.target.childElementCount; x++){
+      button = event.target.children[x]
       button.style.display = "inline";
     }
   });
   listItem.addEventListener("mouseleave", () => {
-    const button = event.target.lastElementChild
-    if (button) {
+    for (let x = 0; x < event.target.childElementCount; x++){
+      button = event.target.children[x]
       button.style.display = "none";
     }
   });

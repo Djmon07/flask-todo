@@ -25,32 +25,41 @@ li.completed {
   text-decoration: line-through;
 }
 
+form.remove {
+  display: none;
+}
+
+li a,
+button.remove {
+  border: 1px solid black;
+  border-radius: 4px;
+  box-shadow: 1px 1px black;
+  font-size: 16px;
+}
+
+li a:active,
+button.remove:active {
+  box-shadow: inset 1px 1px black;
+}
+
 button.remove {
   background-color: #d64100;
   font-size: 16px;
 }
 
-li form{
-  display: inline;
+li a:active {
+  box-shadow: inset 1px 1px grey;
 }
 
 li a {
-  border: 1px solid black;
-  border-radius: 4px;
-  box-shadow: 1px 1px black;
   color: black;
   display: none;
-  font-size: 16px;
   padding: 1px;
   text-decoration: none;
 }
 
 li a:hover {
   background-color: lightgreen;
-}
-
-li a:active {
-  box-shadow: inset 1px 1px grey;
 }
 
 form.register {
