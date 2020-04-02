@@ -25,7 +25,7 @@ def test_filter(client):
 
 
 def test_remove(client):
-    response = client.post('/remove', data={'remove': 'do homework'})
+    response = client.post('/remove', data={'remove': 1})
     assert response.data.count(b'<li class="completed">') == 0
 
 def test_completion(client):
