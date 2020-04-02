@@ -36,10 +36,7 @@ def test_completion(client):
     response = client.post('/', data={'filter': 'uncompleted'})
     assert b'clean room' not in response.data
 
-def test_description(client):
-
-    response = client.post('/' data={'filer':'uncomplete'})
-    assert b'get groceries' in response.data
-    reponse = client.get('/uncomplete/3')
-    reponse = glient.post('/', data={'filer': 'uncompleted'})
-    assert b'get groceries' not in response.data
+def test_edit(client):
+    response = client.post('/edit', data={'editTask': 'test', 'edit' : '1'})
+    assert response
+    assert b'test' in client.get('/').data
