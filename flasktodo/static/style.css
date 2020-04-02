@@ -43,3 +43,31 @@ li a:hover {
 li a:active {
   box-shadow: inset 1px 1px grey;
 }
+
+form.register {
+  margin: 0 auto;
+  width: 50%;
+  border: 1px solid black;
+  box-shadow: 2px 2px 5px grey;
+}
+
+form.register label {
+  display: flex;
+  border-bottom: 1px solid grey;
+  justify-content: center;
+  padding: 1rem;
+}
+
+form.register input {
+  margin-left: 1rem;
+}
+
+form.register button {
+  border-color: black;
+  font-size: 16px;
+  width: 100%;
+}
+
+form.register button:hover {
+  font-weight: bold;
+}
