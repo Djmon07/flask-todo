@@ -4,6 +4,10 @@
 
 <h1>Register for a simple to-do application</h1>
 
+{% for message in get_flashed_messages() %}
+  <p class="flash">{{ message}}</p>
+{% endfor %}
+
 <form class="register" action="/register" method="post">
 
   <label>Username:

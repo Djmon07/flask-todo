@@ -14,13 +14,33 @@ def register():
 
         username = request.form['username']
         password = request.form['password']
+        user_exists = None
 
         with db.get_db() as con:
             with con.cursor() as cur:
+                cur.execute("""SELECT username FROM users
+                    WHERE username = %s""", (username,))
+                user_exists = cur.fetchone()
 
-                cur.execute("""INSERT INTO users (username, password)
-                    VALUES (%s, %s)""", (username, password))
+        if not username:
 
-        return redirect('/')
+            flash('Username is required')
+
+        elif not password:
+
+            flash('Password is required')
+
+        elif user_exists is not None:
+
+            flash(f'{username} is already registered')
+
+        else:
+            with db.get_db() as con:
+                with con.cursor() as cur:
+
+                    cur.execute("""INSERT INTO users (username, password)
+                        VALUES (%s, %s)""", (username, password))
+
+            return redirect('/')
 
     return render_template('register.html')

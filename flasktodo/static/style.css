@@ -71,3 +71,10 @@ form.register button {
 form.register button:hover {
   font-weight: bold;
 }
+
+p.flash {
+  color: red;
+  margin: 1rem auto;
+  text-align: center;
+  width: 50%;
+}
