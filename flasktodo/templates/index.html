@@ -21,9 +21,13 @@
         {{ todo['description'] }}
         <form action="/remove" class="remove" method=post>
           <button class= "remove" type="submit" name="remove" value="{{ todo['id'] }}">Delete</button>
-        </form>
         {% if not todo['completed'] %}
           <a href="{{ url_for('todos.complete', id=todo['id']) }}">Complete</a>
+        </form>
+        <form class="edit" action="/edit" method="post">
+          <button class="edit" type="submit"  name="edit" value="{{ todo['id'] }}">Edit Task</button>
+          <input type="text" name="editTask">
+        </form>
         {% endif %}
       </li>
     {% endfor %}

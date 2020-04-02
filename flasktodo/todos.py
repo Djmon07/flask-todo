@@ -63,7 +63,6 @@ def remove():
                     (remove,))
                 con.commit()
 
-            return redirect("/")
 
 @bp.route("/complete/<int:id>")
 def complete(id):
@@ -72,5 +71,16 @@ def complete(id):
         with con.cursor() as cur:
             cur.execute("UPDATE todos SET completed = True WHERE id = %s", (id,))
             con.commit()
+
+
+@bp.route('/edit', methods=['GET', 'POST'])
+def edit():
+    if request.method == 'POST':
+        with db.get_db() as con:
+            with con.cursor() as cur:
+                editTask = request.form.get('editTask')
+                id = request.form.get('edit')
+                cur.execute(" UPDATE todos SET description = %s WHERE id = %s", (editTask, id,))
+                con.commit()
 
     return redirect("/")

@@ -35,3 +35,8 @@ def test_completion(client):
     response = client.get('/complete/1')
     response = client.post('/', data={'filter': 'uncompleted'})
     assert b'clean room' not in response.data
+
+def test_edit(client):
+    response = client.post('/edit', data={'editTask': 'test', 'edit' : '1'})
+    assert response
+    assert b'test' in client.get('/').data
