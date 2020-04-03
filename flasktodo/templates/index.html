@@ -3,6 +3,8 @@
 {% block content %}
   <h1>A simple to-do application</h1>
 
+  <p>Don't have an account? <a href="{{ url_for('auth.register') }}">Sign up</a>
+
   <form class="filter" action="/" method="post">
     <label>Filter:
       <select class="filter" name="filter">
@@ -29,6 +31,9 @@
           <input type="text" name="editTask">
         </form>
         {% endif %}
+        <form action="/remove" class="remove" method=post>
+          <button class= "remove" type="submit" name="remove" value="{{ todo['id'] }}">Delete</button>
+        </form>
       </li>
     {% endfor %}
   </ul>

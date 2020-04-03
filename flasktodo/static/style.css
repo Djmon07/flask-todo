@@ -25,22 +25,35 @@ li.completed {
   text-decoration: line-through;
 }
 
+form.remove {
+  display: none;
+}
+
+li a,
+button.remove {
+  border: 1px solid black;
+  border-radius: 4px;
+  box-shadow: 1px 1px black;
+  font-size: 16px;
+}
+
+li a:active,
+button.remove:active {
+  box-shadow: inset 1px 1px black;
+}
+
 button.remove {
   background-color: #d64100;
   font-size: 16px;
 }
 
-li form{
-  display: inline;
+li a:active {
+  box-shadow: inset 1px 1px grey;
 }
 
 li a {
-  border: 1px solid black;
-  border-radius: 4px;
-  box-shadow: 1px 1px black;
   color: black;
   display: none;
-  font-size: 16px;
   padding: 1px;
   text-decoration: none;
 }
@@ -49,8 +62,39 @@ li a:hover {
   background-color: lightgreen;
 }
 
-li a:active {
-  box-shadow: inset 1px 1px grey;
+form.register {
+  margin: 0 auto;
+  width: 50%;
+  border: 1px solid black;
+  box-shadow: 2px 2px 5px grey;
+}
+
+form.register label {
+  display: flex;
+  border-bottom: 1px solid grey;
+  justify-content: center;
+  padding: 1rem;
+}
+
+form.register input {
+  margin-left: 1rem;
+}
+
+form.register button {
+  border-color: black;
+  font-size: 16px;
+  width: 100%;
+}
+
+form.register button:hover {
+  font-weight: bold;
+}
+
+p.flash {
+  color: red;
+  margin: 1rem auto;
+  text-align: center;
+  width: 50%;
 }
 
 form.edit {
